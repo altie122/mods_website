@@ -8,14 +8,33 @@ const { title, description } = Astro.props;
 
 import '@/styles/globals.css'
 import Head from "@/components/head.astro";
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
 	<head>
+		<script is:inline>
+			(function() {
+				const getThemePreference = () => {
+					if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+						return localStorage.getItem('theme');
+					}
+					return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				};
+				const theme = getThemePreference();
+				const isDark = theme === 'dark';
+				document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+			})();
+		</script>
 		<Head title={title} description={description} />
 	</head>
 	<body>
-		<slot />
+		<Header client:only="react" />
+		<div class="min-h-screen">
+			<slot />
+		</div>
+		<Footer />
 	</body>
 </html>
