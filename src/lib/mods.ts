@@ -37,4 +37,22 @@ export const mods: modsItemType = [
       state: "discontinued | broken",
     }
   },
+  {
+    name: "Altie's Daily play (Forge)",
+    localData: {
+      title: "Altie's Daily play (Forge)",
+      description: "the mods in this pack are great for general day to day game play. It includes minimaps, world maps, and more useful mods!",
+      image: "https://media.forgecdn.net/avatars/thumbnails/793/771/64/64/638151808891933508.png",
+      links: [
+        {
+          "name": "CurseForge",
+          "link": "https://www.curseforge.com/minecraft/modpacks/alties-daily-play-forge",
+          "image": "https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/curseforge_46h.png"
+        },
+      ],
+      version: "1.19 V.1",
+      type: "modpack",
+      state: "discontinued | replaced",
+    }
+  }
 ]
