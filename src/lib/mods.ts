@@ -52,7 +52,7 @@ export const mods: modsItemType = [
       ],
       version: "1.19 V.1",
       type: "modpack",
-      state: "discontinued | replaced",
+      state: "discontinued",
     }
   }
 ]
