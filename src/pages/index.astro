@@ -7,7 +7,7 @@ import { mods } from '../lib/mods';
 <Layout title="Altie122's Mods" description='A list of mods, plugins, resource packs, and data packs made by Altie122'>
 	<main class="grid lg:grid-cols-2 2xl:grid-cols-3 h-screen w-screen auto-rows-auto gap-4 p-4 grid-flow-row">
 		{mods.map((mod) => (
-			<ModCard name={mod} />
+			<ModCard name={mod.name} localData={mod.localData} />
 		))}
 	</main>
 </Layout>

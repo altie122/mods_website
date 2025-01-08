@@ -1,6 +1,19 @@
 ---
 interface Props {
 	name: string;
+  localData?: {
+    title: string;
+    description: string;
+    image: string;
+    links?: {
+      link: string | URL | null | undefined;
+      image: string | null | undefined;
+      name: string | null | undefined;
+    }[];
+    version: string;
+    type: string;
+    state: string;
+  };
 }
 
 import {
@@ -15,21 +28,29 @@ import {
 import ModCardButton from './ModCardButton'
 import { Badge } from "./ui/badge";
 
-const { name } = Astro.props;
+const { name, localData } = Astro.props;
 
-const response = await fetch(`https://${name}.altie122.xyz/data/mod-info.json`);
-const data = await response.json();
+let data: any;
+
+if (localData) {
+  data = localData;
+} else {
+  const response = await fetch(`https://${name}.altie122.xyz/data/mod-info.json`);
+  data = await response.json();
+}
 
 const Title = data.title;
 const Description = data.description;
 const image = data.image;
 const Links = data.links || [];
-const Wiki = data.wiki;
+const Wiki = data.wiki || "N/A";
 const Version = data.version;
+const type = data.type || "mod";
+const state = data.state || "maintained";
 ---
 <Card className="h-fit">
   <CardHeader>
-    <div class="flex"><CardTitle>{Title}</CardTitle><Badge variant="outline" className="w-fit">v{Version}</Badge></div>
+    <div class="flex"><CardTitle>{Title}</CardTitle><Badge variant="outline" className="w-fit">v{Version}</Badge><Badge variant="default" className="w-fit">{type}</Badge><Badge variant="secondary" className="w-fit">{state}</Badge></div>
     <CardDescription>{Description}</CardDescription>
   </CardHeader>
   <CardContent>
@@ -42,7 +63,11 @@ const Version = data.version;
           <img src={link.image} alt={link.name} class="h-10 w-10" />
         </a>
       ))}
-      <ModCardButton Wiki={Wiki} client:load/>
+      {
+        Wiki !== "N/A" && (
+          <ModCardButton Wiki={Wiki} client:load/>
+        )
+      }
     </div>
   </CardFooter>
 </Card>
