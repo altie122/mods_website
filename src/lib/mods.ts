@@ -20,6 +20,24 @@ export const mods: modsItemType = [
     name: "kelip",
   },
   {
+    name: "Altie's Day to Day Modpack 2025",
+    localData: {
+      title: "Altie's Day to Day Modpack 2025",
+      description: "the mods in this pack are great for general day to day game play. It includes minimaps, voicechat, and more useful mods!",
+      image: "https://media.forgecdn.net/avatars/thumbnails/1151/306/64/64/638719166579678106.png",
+      links: [
+        {
+          "name": "CurseForge",
+          "link": "https://www.curseforge.com/minecraft/modpacks/alties-day-to-day-modpack-2025",
+          "image": "https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/curseforge_46h.png"
+        },
+      ],
+      version: "1.21.1 V1.0.0-b.1",
+      type: "modpack",
+      state: "maintained",
+    }
+  },
+  {
     name: "Altie's Craft",
     localData: {
       title: "Altie's Craft",
