@@ -34,7 +34,7 @@ export const mods: modsItemType = [
       ],
       version: "1.21.1 V1.0.0-b.1",
       type: "modpack",
-      state: "unmaintained",
+      state: "maintained",
     }
   },
   {
