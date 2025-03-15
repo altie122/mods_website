@@ -7,7 +7,7 @@ import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://mods.altie122.xyz',
+  site: 'https://minecraft.altie122.xyz',
   integrations: [react(), sitemap(), tailwind({
     applyBaseStyles: false
   })],

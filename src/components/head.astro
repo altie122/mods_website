@@ -4,19 +4,17 @@ export interface Props {
 	description: string;
 }
 const { title, description } = Astro.props;
-const banner = "https://www.altie122.xyz/banner.png"
+const banner = "https://www.altie122.xyz/banner.jpg"
 const favicon = "https://www.altie122.xyz/icon.ico"
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <!-- DO NOT ADD THE HEAD TAG -->
 <!-- sitemap, favicon, title, and metadata -->
-<link rel="sitemap" href="/sitemap-index.xml" />
 <meta charset="UTF-8" />
 <meta name="description" content={description}>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" type="image/ico" href={favicon} />
 <meta name="generator" content={Astro.generator} />
-<link rel="manifest" href="https://www.altie122.xyz/manifest.webmanifest" />
 <title>{title}</title>
 <!-- canonical -->
 <link rel="canonical" href={canonicalURL}>
@@ -26,12 +24,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta property="og:title" content={title}>
 <meta property="og:image" content={banner}>
 <meta property="og:description" content={description}>
-<meta property="og:site_name" content="Altie122">
+<meta property="og:site_name" content="Altie122's Mods">
 <meta property="og:locale" content="en_US">
 <meta property="og:image:width" content="1000">
 <meta property="og:image:height" content="500">
 
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@altie122">
 <meta name="twitter:creator" content="@altie122">
 <meta name="twitter:url" content={canonicalURL}>
@@ -42,3 +40,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <link rel="apple-touch-icon" href="https://www.altie122.xyz/icon.png">
 <link rel="apple-touch-startup-image" href='https://www.altie122.xyz/banner.jpg'>
 <meta name="apple-mobile-web-app-title" content={title}>
+<!-- versionId for altie122.xyz/projects -->
+<meta name="versionId" content={`${import.meta.env.VERCEL_DEPLOYMENT_ID}-${import.meta.env.PUBLIC_VERCEL_TARGET_ENV}-${import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA}`}>
